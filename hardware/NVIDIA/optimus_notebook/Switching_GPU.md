@@ -1,5 +1,5 @@
 ## Switching graphics card (iGPU and dGPU), without any additional software. Functional on all GNU/Linux distributions.
-We will try switching between integrated GPU and discrete.
+We will try switching between integrated and discrete GPU.
 
 ## Verifications if the NVIDIA GPU really works.
 We'll install a packages to help us find out. If you don't have vanilla Arch Linux, you can skip installing these packages, you probably already have them installed.
