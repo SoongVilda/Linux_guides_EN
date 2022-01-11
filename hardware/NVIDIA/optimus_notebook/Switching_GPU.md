@@ -20,7 +20,7 @@ __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRA
 ```
 5. If the NVIDIA card showed up, everything works!
 ## Usage of NVIDIA GPU.
-If you need to run anything with an NVIDIA GPU, just use the command below. Remember, after ``program``` just type any package.
+If you need to run anything with an NVIDIA GPU, just use the command below. Remember, after ```program``` just type any package.
 
 ```
 __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia program
