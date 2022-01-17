@@ -1,9 +1,12 @@
 #!/bin/bash
-#Installation NVIDIA drivers
-pacman -S --needed egl-wayland libvdpau libxnvctrl nvidia-dkms nvidia-settings nvidia-utils opencl-nvidia cuda lib32-libvdpau lib32-nvidia-utils lib32-opencl-nvidia vulkan-icd-loader lib32-vulkan-icd-loader
 
-#creating the device nodes for proper workload NVENC
-nvidia-modprobe
+if [ "$EUID" -ne 0 ]
+  then echo "Prosím, spusť script se sudo"
+  exit 1
+fi
+
+#Installation NVIDIA drivers
+sudo pacman -S --needed nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils vulkan-icd-loader lib32-vulkan-icd-loader libvdpau lib32-libvdpau libxnvctrl opencl-nvidia lib32-opencl-nvidia cuda lib32-libvdpau
 
 #Hardware accelerated video encoding with NVENC
 echo 'ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/usr/bin/nvidia-modprobe -c0 -u"' > /etc/udev/rules.d/70-nvidia.rules
