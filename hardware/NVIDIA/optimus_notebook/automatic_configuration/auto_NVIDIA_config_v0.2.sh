@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 #Installation NVIDIA drivers
-sudo pacman -S --needed nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils vulkan-icd-loader lib32-vulkan-icd-loader libvdpau lib32-libvdpau libxnvctrl opencl-nvidia lib32-opencl-nvidia cuda lib32-libvdpau
+pacman -S --needed nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils vulkan-icd-loader lib32-vulkan-icd-loader libvdpau lib32-libvdpau libxnvctrl opencl-nvidia lib32-opencl-nvidia cuda lib32-libvdpau
 
 #Hardware accelerated video encoding with NVENC
 echo 'ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/usr/bin/nvidia-modprobe -c0 -u"' > /etc/udev/rules.d/70-nvidia.rules
