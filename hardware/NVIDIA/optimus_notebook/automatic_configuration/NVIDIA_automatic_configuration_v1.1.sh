@@ -16,19 +16,19 @@ then
     #All modules in the mkinitcpio.conf
     MOD_EXIST="$(grep "MODULES=" /etc/mkinitcpio.conf | tail -n 1 | cut -d '"' -f2 | cut -d ')' -f1 | cut -d '(' -f2)"
 
-    #Does the mkinitcpio.conf contain modules? 
+    #Does the mkinitcpio.conf contain modules?
     if [ "$MOD_EXIST" = "" ];
     then
         NONE_MODULES="$(grep "MODULES=" /etc/mkinitcpio.conf | tail -n 1 )"
 
             #No modules, bot configs contain brackets, adding modules nvidia nvidia_uvm
-            if [ "$NONE_MODULES" = "MODULES=(" ];
+            if [ "$NONE_MODULES" = "MODULES=()" ];
             then
-                sed -i "s/$NONE_MODULES/$NONE_MODULES nvidia nvidia_uvm/g" /etc/mkinitcpio.conf
+                sed -i 's/MODULES=()/MODULES=(nvidia nvidia_uvm)/g' /etc/mkinitcpio.conf
 
             #No modules, bot configs contain quotation marks, adding modules nvidia nvidia_uvm
             else
-                sed -i 's/MODULES=""/MODULES="nvidia nvidia_uvm/g' /etc/mkinitcpio.conf
+                sed -i 's/MODULES=""/MODULES="nvidia nvidia_uvm"/g' /etc/mkinitcpio.conf
             fi
 
     #mkinitcpio.conf contains some modules, adding nvidia nvidia_uvm to existing modules
