@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Intel drivers packages
-pacman -S --needed extra/intel-ucode extra/vulkan-intel community/intel-compute-runtime community/intel-gmmlib community/intel-gpu-tools community/intel-graphics-compiler community/intel-media-driver community/intel-media-sdk community/libmfx community/libva-utils multilib/lib32-vulkan-intel extra/glu extra/libva-mesa-driver extra/mesa extra/mesa-demos extra/mesa-utils extra/mesa-vdpau extra/vulkan-mesa-layers multilib/lib32-glu multilib/lib32-libva-mesa-driver multilib/lib32-mesa multilib/lib32-mesa-demos multilib/lib32-mesa-utils multilib/lib32-mesa-vdpau multilib/lib32-vulkan-mesa-layers extra/vulkan-icd-loader extra/vulkan-extra-layers extra/vulkan-extra-tools extra/vulkan-headers
+pacman -S --needed intel-ucode vulkan-intel intel-compute-runtime intel-gmmlib intel-gpu-tools intel-graphics-compiler intel-media-driver intel-media-sdk libmfx libva-utils lib32-vulkan-intel glu libva-mesa-driver mesa mesa-demos mesa-utils mesa-vdpau vulkan-mesa-layers lib32-glu lib32-libva-mesa-driver lib32-mesa lib32-mesa-demos lib32-mesa-utils lib32-mesa-vdpau lib32-vulkan-mesa-layers vulkan-icd-loader vulkan-extra-layers vulkan-extra-tools vulkan-headers
 
 #Adding modules i915 a intel_agp
 grep -i -q "MODULES=" /etc/mkinitcpio.conf
